@@ -1,7 +1,7 @@
-export { createCard, deleteCard, likeCard }
+export { createCard, deleteCard, likeCard };
 
 // @todo: Функция создания и удаления карточки
-function createCard(cardData, deleteCard, likeCard) {
+function createCard(cardData, deleteCard, likeCard, openPopupImage) {
   // @todo: Темплейт карточки
   const cardTemplate = document.querySelector('#card-template');
   const cardItemTemplate = cardTemplate.content.querySelector('.places__item');
@@ -21,7 +21,11 @@ function createCard(cardData, deleteCard, likeCard) {
 
   likeBtn.addEventListener('click', () => {
     likeCard(likeBtn);
-  })
+  });
+
+  cardImage.addEventListener('click', () => {
+    openPopupImage(cardImage);
+  });
 
   return cardElement;
 }
